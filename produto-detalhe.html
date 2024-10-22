@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Detalhes do Produto</title>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="index.html">Pinguim Burguer</a>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="quem-somos.html">Quem Somos</a></li>
+                <li class="nav-item"><a class="nav-link" href="produtos.html">Produtos</a></li>
+                <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item"><a href="produtos.html">Produtos</a></li>
+            <li class="breadcrumb-item active" id="breadcrumb-produto" aria-current="page">Detalhes do Produto</li>
+        </ol>
+
+        <h2 id="titulo-produto">Detalhes do Produto</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img id="imagem-produto" src="" class="img-fluid" alt="Imagem do Produto">
+            </div>
+            <div class="col-md-6">
+                <h3 id="nome-produto"></h3>
+                <p><strong>Descrição:</strong> <span id="descricao-produto"></span></p>
+                <p><strong>Ingredientes:</strong> <span id="ingredientes-produto"></span></p>
+                <p><strong>Preço:</strong> R$ <span id="preco-produto"></span></p>
+                <a href="#" class="btn btn-success">Comprar</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // detalhes dos hambúrgueres
+        const produtos = {
+            pinguim_duplo_cheddar: {
+                nome: "Pinguim Duplo Cheddar",
+                descricao: "Dois hambúrgueres com cheddar derretido, alface e tomate.",
+                ingredientes: "Pão, dois hambúrgueres, cheddar, alface, tomate, maionese.",
+                preco: "29,90",
+                imagem: "img/duplo chedar.jpeg" // caminho da imagem
+            },
+            pinguim_bacon: {
+                nome: "Pinguim Bacon",
+                descricao: "Hambúrguer com bacon crocante, queijo e cebola caramelizada.",
+                ingredientes: "Pão, hambúrguer, bacon, queijo, cebola caramelizada, maionese.",
+                preco: "31,90",
+                imagem: "img/bacon.jpeg" // caminho da imagem
+            },
+            pinguim_veggie: {
+                nome: "Pinguim Veggie",
+                descricao: "Delicioso hambúrguer vegetariano com legumes frescos e molho especial.",
+                ingredientes: "Pão integral, hambúrguer de legumes, alface, cebola roxa, tomate, molho especial.",
+                preco: "28,90",
+                imagem: "img/veggie.jpeg" // caminho da imagem            
+            },
+            pinguim_queijo: {
+                nome: "Pinguim Queijo",
+                descricao: "Hambúrguer com queijo especial, alface e molho caseiro.",
+                ingredientes: "Pão, hambúrguer, queijo especial, alface, molho caseiro.",
+                preco: "27,90",
+                imagem: "img/queijo.jpeg" // caminho da imagem           
+            },
+            pinguim_frango: {
+                nome: "Pinguim Frango",
+                descricao: "Hambúrguer de frango grelhado com maionese e alface.",
+                ingredientes: "Pão, hambúrguer de frango, maionese, alface, tomate.",
+                preco: "26,90",
+                imagem: "img/frango.jpeg" // caminho da imagem            
+            },
+            pinguim_4_queijos: {
+                nome: "Pinguim 4 Queijos",
+                descricao: "Mistura de quatro queijos derretidos e cebola roxa.",
+                ingredientes: "Pão, hambúrguer, cheddar, prato, gorgonzola, muçarela, cebola roxa.",
+                preco: "32,90",
+                imagem: "img/4 queijos.jpeg" // caminho da imagem            
+            },
+            pinguim_picanha: {
+                nome: "Pinguim Picanha",
+                descricao: "Delicioso hambúrguer de picanha com molho barbecue.",
+                ingredientes: "Pão, hambúrguer de picanha, alface, tomate, molho barbecue.",
+                preco: "33,90",
+                imagem: "img/picanha.jpeg" // caminho da imagem           
+            },
+            pinguim_morango: {
+                nome: "Pinguim Morango",
+                descricao: "Hambúrguer inusitado com creme de morango e nutella.",
+                ingredientes: "Pão, creme de morango, morango, nutella.",
+                preco: "34,90",
+                imagem: "img/morango.jpeg" // caminho da imagem           
+            },
+            pinguim_garlic: {
+                nome: "Pinguim Garlic",
+                descricao: "Hambúrguer com molho de alho e cheddar cremoso.",
+                ingredientes: "Pão, hambúrguer, molho de alho, cheddar cremoso, alface.",
+                preco: "30,90",
+                imagem: "img/alho.jpeg" // caminho da imagem           
+            },
+            pinguim_burger: {
+                nome: "Pinguim Burger",
+                descricao: "Hambúrguer clássico com alface, tomate e maionese.",
+                ingredientes: "Pão, hambúrguer, alface, tomate, maionese caseira.",
+                preco: "25,90",
+                imagem: "img/normal.jpeg" // caminho da imagem        
+            },
+        };
+
+        // função para obter o parâmetro da URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // obter o produto da URL
+        const produtoSelecionado = getQueryParam('produto');
+
+        // verificar se o produto existe no objeto
+        if (produtos[produtoSelecionado]) {
+            const produto = produtos[produtoSelecionado];
+            document.getElementById('titulo-produto').innerText = produto.nome;
+            document.getElementById('nome-produto').innerText = produto.nome;
+            document.getElementById('descricao-produto').innerText = produto.descricao;
+            document.getElementById('ingredientes-produto').innerText = produto.ingredientes;
+            document.getElementById('preco-produto').innerText = produto.preco;
+            document.getElementById('imagem-produto').src = produto.imagem; // atualizando a imagem
+            document.getElementById('breadcrumb-produto').innerText = produto.nome;
+        } else {
+            document.getElementById('titulo-produto').innerText = "Produto não encontrado";
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
