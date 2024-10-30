@@ -1,71 +1,141 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Quem Somos - Pinguim Burguer</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Somos - Pinguim Burguer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --navbar-bg-color: #1a1a1a; /* Fundo da navbar (escuro) */
+            --navbar-text-color: #ffc72c; /* Cor do texto (dourado) */
+            --button-color: #ffc72c; /* Cor do botão de destaque */
+            --button-text-color: #1a1a1a; /* Cor do texto do botão */
+            --background-color: #f0f0f0; /* Cor de fundo geral do site */
+            --section-bg-color: #ffffff; /* Cor de fundo da seção "Quem Somos" */
+            --card-bg-color: #ffffff; /* Cor de fundo dos cartões */
+            --card-border-color: #e0e0e0; /* Cor da borda dos cartões */
+        }
+
+        /* Estilo da navbar */
+        .navbar-custom {
+            background-color: var(--navbar-bg-color);
+            padding: 1rem;
+        }
+
+        .navbar-custom .navbar-brand,
+        .navbar-custom .nav-link {
+            color: var(--navbar-text-color);
+            font-weight: bold;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .navbar-custom .nav-link:hover,
+        .navbar-custom .nav-link.active {
+            color: white;
+        }
+
+        /* Botão de destaque */
+        .btn-custom {
+            background-color: var(--button-color);
+            color: var(--button-text-color);
+            border-radius: 30px;
+            padding: 0.5rem 1.5rem;
+            font-weight: bold;
+        }
+
+        .btn-custom:hover {
+            background-color: white;
+            color: var(--button-color);
+        }
+
+        /* Estilo da seção "Quem Somos" */
+        body {
+            background-color: var(--background-color);
+        }
+
+        .who-we-are-section {
+            background-color: var(--section-bg-color);
+            padding: 2rem 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilo dos cartões */
+        .card {
+            background-color: var(--card-bg-color);
+            border: 1px solid var(--card-border-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+    </style>
 </head>
 <body>
-  <!-- navbar -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="index.html">Pinguim Burguer</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="quem-somos.html">Quem Somos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="produtos.html">Produtos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contato.html">Contato</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-
-  <!-- breadcrumb -->
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Quem Somos</li>
-    </ol>
-  </nav>
-
-  <!-- conteúdo principal -->
-  <div class="container mt-4">
-    <h1>Quem Somos</h1>
-    <div class="row">
-      <div class="col-md-4">
-        <div class="card">
-          <img src="img/nossa-equipe.jpg" class="card-img-top" alt="Nossa Equipe">
-          <div class="card-body">
-            <h5 class="card-title">Nossa Equipe</h5>
-            <p class="card-text">Somos apaixonados por hambúrgueres e estamos aqui para oferecer o melhor para você!</p>
-          </div>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">Pinguim Burguer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="quem-somos.html">Quem Somos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contato.html">Contato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-custom" href="produtos.html">Faça seu pedido</a> 
+                    </li>
+                </ul>
+            </div>
         </div>
-      </div>
-      <div class="col-md-4">
-        <div class="card">
-          <img src="img/historia.jpg" class="card-img-top" alt="História">
-          <div class="card-body">
-            <h5 class="card-title">Nossa História</h5>
-            <p class="card-text">Desde 2010, trazendo qualidade e sabor único para os nossos clientes.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+    </nav>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Breadcrumb -->
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Quem Somos</li>
+        </ol>
+    </nav>
+
+    <!-- Conteúdo principal -->
+    <div class="container mt-4 who-we-are-section">
+        <h1 class="mb-4">Quem Somos</h1>
+        <div class="row">
+            <!-- Card Equipe -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <img src="img/nossa-equipe.jpg" class="card-img-top" alt="Nossa Equipe">
+                    <div class="card-body">
+                        <h5 class="card-title">Nossa Equipe</h5>
+                        <p class="card-text">Somos apaixonados por hambúrgueres e estamos aqui para oferecer o melhor para você!</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Card História -->
+            <div class="col-md-6">
+                <div class="card mb-4">
+                    <img src="img/minha_loja_hamburgueria_do_lado_de_fora.jpeg" class="card-img-top" alt="História">
+                    <div class="card-body">
+                        <h5 class="card-title">Nossa História</h5>
+                        <p class="card-text">Desde 2010, trazendo qualidade e sabor único para os nossos clientes.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
