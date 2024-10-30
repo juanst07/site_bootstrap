@@ -7,51 +7,79 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     :root {
-      --navbar-bg-color: #1a1a1a; /* Fundo da navbar (escuro) */
-      --navbar-text-color: #ffc72c; /* Cor do texto (dourado) */
-      --button-color: #ffc72c; /* Cor do botão de destaque */
-      --button-text-color: #1a1a1a; /* Cor do texto do botão */
+        --navbar-bg-color: #1a1a1a;
+        --navbar-text-color: #ffc72c; /* Texto da navbar em amarelo */
+        --button-color: #ffc72c;
+        --button-text-color: #1a1a1a;
     }
 
-    body, html {
-      height: 100%;
-      margin: 0;
-      overflow-x: hidden; /* Esconde a rolagem horizontal */
-    }
-
-    /* Estilo da navbar */
     .navbar-custom {
-      background-color: var(--navbar-bg-color);
-      padding: 1rem;
+        background-color: var(--navbar-bg-color);
+        padding: 1rem;
     }
 
     .navbar-custom .nav-link,
     .navbar-brand {
-      color: var(--navbar-text-color);
-      font-weight: bold;
-      font-size: 1.1rem;
-      text-transform: uppercase;
+        color: var(--navbar-text-color) !important; /* Forçar a cor do texto da navbar */
+        font-weight: bold;
+        font-size: 1.1rem;
+        text-transform: uppercase;
     }
 
     .navbar-custom .nav-link:hover,
     .navbar-custom .nav-link.active {
-      color: white;
+        color: rgb(255, 255, 255);
     }
 
-    /* Botão de destaque semelhante ao McDonald's */
     .btn-custom {
-      background-color: var(--button-color);
-      color: var(--button-text-color);
-      border-radius: 30px;
-      padding: 0.5rem 1.5rem;
-      font-weight: bold;
+        background-color: var(--button-color);
+        color: var(--button-text-color);
+        border-radius: 30px;
+        padding: 0.5rem 1.5rem;
+        font-weight: bold;
     }
 
     .btn-custom:hover {
-      background-color: white;
-      color: var(--button-color);
+        background-color: rgb(255, 255, 255);
+        color: var(--button-color);
     }
-  </style>
+
+    body {
+        background-color: #000;
+        color: #ffc72c; /* Cor padrão do texto no corpo */
+    }
+
+    .card {
+        background-color: #000000; /* Fundo preto para os cards */
+        color: #ffc72c; /* Cor do texto dos cards */
+        border: none; /* Remove borda padrão */
+    }
+
+    .card-body {
+        color: #ffc72c; /* Define a cor do texto no corpo do card */
+    }
+
+    .breadcrumb {
+        background-color: transparent; /* Para deixar o fundo transparente, se necessário */
+        color: #ffc72c; /* Cor do texto da breadcrumb */
+    }
+
+    .breadcrumb .breadcrumb-item a {
+        color: #ffc72c; /* Cor dos links na breadcrumb */
+    }
+
+    .breadcrumb .breadcrumb-item.active {
+        color: #ffffff; /* Cor do item ativo (Produtos) */
+    }
+
+    /* Estilo para os títulos do produto */
+    #nome-produto, 
+    #descricao-produto, 
+    #ingredientes-produto, 
+    #preco-produto {
+        color: #ffc72c; /* Cor do texto do produto (amarelo) */
+    }
+</style>
 </head>
 <body>
   <!-- Navbar -->

@@ -7,14 +7,12 @@
     <title>Detalhes do Produto</title>
     <style>
         :root {
-            --navbar-bg-color: #1a1a1a; /* Fundo da navbar (escuro) */
-            --navbar-text-color: #ffc72c; /* Cor do texto (dourado) */
-            --button-color: #ffc72c; /* Cor do botão de destaque */
-            --button-text-color: #1a1a1a; /* Cor do texto do botão */
-            --highlight-color: #ffc72c; /* Cor dos textos destacados */
+            --navbar-bg-color: #1a1a1a;
+            --navbar-text-color: #ffc72c; /* Texto da navbar em amarelo */
+            --button-color: #ffc72c;
+            --button-text-color: #1a1a1a;
         }
 
-        /* Estilo da navbar */
         .navbar-custom {
             background-color: var(--navbar-bg-color);
             padding: 1rem;
@@ -22,7 +20,7 @@
 
         .navbar-custom .nav-link,
         .navbar-brand {
-            color: var(--highlight-color); /* Usar a cor amarela */
+            color: var(--navbar-text-color) !important; /* Forçar a cor do texto da navbar */
             font-weight: bold;
             font-size: 1.1rem;
             text-transform: uppercase;
@@ -30,10 +28,9 @@
 
         .navbar-custom .nav-link:hover,
         .navbar-custom .nav-link.active {
-            color: white; /* Muda a cor ao passar o mouse */
+            color: rgb(255, 255, 255);
         }
 
-        /* Botão de destaque semelhante ao McDonald's */
         .btn-custom {
             background-color: var(--button-color);
             color: var(--button-text-color);
@@ -43,15 +40,51 @@
         }
 
         .btn-custom:hover {
-            background-color: rgb(217, 241, 0);
+            background-color: rgb(255, 255, 255);
             color: var(--button-color);
+        }
+
+        body {
+            background-color: #000;
+            color: #ffc72c; /* Cor padrão do texto no corpo */
+        }
+
+        .card {
+            background-color: #000000; /* Fundo preto para os cards */
+            color: #ffc72c; /* Cor do texto dos cards */
+            border: none; /* Remove borda padrão */
+        }
+
+        .card-body {
+            color: #ffc72c; /* Define a cor do texto no corpo do card */
+        }
+
+        .breadcrumb {
+            background-color: transparent; /* Para deixar o fundo transparente, se necessário */
+            color: #ffc72c; /* Cor do texto da breadcrumb */
+        }
+
+        .breadcrumb .breadcrumb-item a {
+            color: #ffc72c; /* Cor dos links na breadcrumb */
+        }
+
+        .breadcrumb .breadcrumb-item.active {
+            color: #ffffff; /* Cor do item ativo (Produtos) */
+        }
+
+        /* Estilo para os títulos do produto */
+        #nome-produto, 
+        #descricao-produto, 
+        #ingredientes-produto, 
+        #preco-produto {
+            color: #ffc72c; /* Cor do texto do produto (amarelo) */
         }
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
-        <a class="navbar-brand" href="index.html">Pinguim Burguer</a>
+        <a class="navbar-brand" href="index.html" style="color: #ffc72c;">Pinguim Burguer</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -86,11 +119,10 @@
                 <a href="#" class="btn btn-success">Comprar</a>
             </div>
         </div>
-    </div>
 
-    <script>
-        // detalhes dos hambúrgueres
-        const produtos = {
+        <script>
+            // detalhes dos hambúrgueres
+            const produtos = {
             pinguim_duplo_cheddar: {
                 nome: "Pinguim Duplo Cheddar",
                 descricao: "Dois hambúrgueres com cheddar derretido, alface e tomate.",
@@ -128,67 +160,79 @@
             },
             pinguim_4_queijos: {
                 nome: "Pinguim 4 Queijos",
-                descricao: "Mistura de quatro queijos derretidos e cebola roxa.",
-                ingredientes: "Pão, hambúrguer, cheddar, prato, gorgonzola, muçarela, cebola roxa.",
+                descricao: "Mistura de quatro queijos especiais, um verdadeiro deleite.",
+                ingredientes: "Pão, hambúrguer, mistura de quatro queijos, alface, molho especial.",
                 preco: "32,90",
                 imagem: "img/4 queijos.jpeg" // caminho da imagem            
             },
             pinguim_picanha: {
                 nome: "Pinguim Picanha",
-                descricao: "Delicioso hambúrguer de picanha com molho barbecue.",
-                ingredientes: "Pão, hambúrguer de picanha, alface, tomate, molho barbecue.",
-                preco: "33,90",
+                descricao: "Suculento hambúrguer de picanha com queijo e cebola grelhada.",
+                ingredientes: "Pão, hambúrguer de picanha, queijo, cebola grelhada, molho especial.",
+                preco: "34,90",
                 imagem: "img/picanha.jpeg" // caminho da imagem           
             },
-            pinguim_morango: {
-                nome: "Pinguim Morango",
-                descricao: "Hambúrguer inusitado com creme de morango e nutella.",
-                ingredientes: "Pão, creme de morango, morango, nutella.",
-                preco: "34,90",
-                imagem: "img/morango.jpeg" // caminho da imagem           
-            },
-            pinguim_garlic: {
-                nome: "Pinguim Garlic",
-                descricao: "Hambúrguer com molho de alho e cheddar cremoso.",
-                ingredientes: "Pão, hambúrguer, molho de alho, cheddar cremoso, alface.",
-                preco: "30,90",
-                imagem: "img/alho.jpeg" // caminho da imagem           
-            },
-            pinguim_burger: {
-                nome: "Pinguim Burger",
-                descricao: "Hambúrguer clássico com alface, tomate e maionese.",
+            pinguim_burguer: {
+                nome: "Pinguim Burguer",
+                descricao: "O clássico: hambúrguer com alface, tomate e maionese.",
                 ingredientes: "Pão, hambúrguer, alface, tomate, maionese caseira.",
                 preco: "25,90",
                 imagem: "img/normal.jpeg" // caminho da imagem        
             },
+            picanha: {
+                nome: "Porção de Picanha",
+                descricao: "a.",
+                ingredientes: "a.",
+                preco: "a",
+                imagem: "img/carne.jpg" // caminho da imagem        
+            },
+            batata_cheddar_bacon: {
+                nome: "Porção de Batata com Ceddar e Bacon",
+                descricao: "a.",
+                ingredientes: "a.",
+                preco: "a",
+                imagem: "img/batata.jpg" // caminho da imagem        
+            },
+            picanha_batata: {
+                nome: "Porção de Batata e Picanha",
+                descricao: "a.",
+                ingredientes: "a.",
+                preco: "a",
+                imagem: "img/carne e batata.jpg" // caminho da imagem        
+            },
         };
 
-        // função para obter o parâmetro da URL
-        function getQueryParam(param) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(param);
-        }
+// função para obter parâmetros da URL
+function getQueryParam(param) {
+    const urlParams = new URLSearchParams(window.location.search);
+    return urlParams.get(param);
+}
 
-        // obter o produto da URL
-        const produtoSelecionado = getQueryParam('produto');
+// obter o produto da URL
+const produtoSelecionado = getQueryParam('produto');
 
-        // verificar se o produto existe no objeto
-        if (produtos[produtoSelecionado]) {
-            const produto = produtos[produtoSelecionado];
-            document.getElementById('titulo-produto').innerText = produto.nome;
-            document.getElementById('nome-produto').innerText = produto.nome;
-            document.getElementById('descricao-produto').innerText = produto.descricao;
-            document.getElementById('ingredientes-produto').innerText = produto.ingredientes;
-            document.getElementById('preco-produto').innerText = produto.preco;
-            document.getElementById('imagem-produto').src = produto.imagem; // atualizando a imagem
-            document.getElementById('breadcrumb-produto').innerText = produto.nome;
-        } else {
-            document.getElementById('titulo-produto').innerText = "Produto não encontrado";
-        }
-    </script>
+// verificar se o produto existe no objeto
+if (produtos[produtoSelecionado]) {
+    const produto = produtos[produtoSelecionado];
+    document.getElementById('titulo-produto').innerText = produto.nome;
+    document.getElementById('nome-produto').innerText = produto.nome;
+    document.getElementById('descricao-produto').innerText = produto.descricao;
+    document.getElementById('ingredientes-produto').innerText = produto.ingredientes;
+    document.getElementById('preco-produto').innerText = produto.preco;
+    document.getElementById('imagem-produto').src = produto.imagem;
+} else {
+    document.getElementById('titulo-produto').innerText = "Produto não encontrado";
+    document.getElementById('nome-produto').innerText = "N/A";
+    document.getElementById('descricao-produto').innerText = "Produto não disponível.";
+    document.getElementById('ingredientes-produto').innerText = "N/A";
+    document.getElementById('preco-produto').innerText = "N/A";
+    document.getElementById('imagem-produto').src = ""; // remove a imagem
+}
+</script>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</div>
 </body>
 </html>

@@ -7,25 +7,20 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         :root {
-            --navbar-bg-color: #1a1a1a; /* Fundo da navbar (escuro) */
-            --navbar-text-color: #ffc72c; /* Cor do texto (dourado) */
-            --button-color: #ffc72c; /* Cor do botão de destaque */
-            --button-text-color: #1a1a1a; /* Cor do texto do botão */
-            --background-color: #f0f0f0; /* Cor de fundo geral do site */
-            --section-bg-color: #ffffff; /* Cor de fundo da seção "Quem Somos" */
-            --card-bg-color: #ffffff; /* Cor de fundo dos cartões */
-            --card-border-color: #e0e0e0; /* Cor da borda dos cartões */
+            --navbar-bg-color: #1a1a1a;
+            --navbar-text-color: #ffc72c; /* Texto da navbar em amarelo */
+            --button-color: #ffc72c;
+            --button-text-color: #1a1a1a;
         }
 
-        /* Estilo da navbar */
         .navbar-custom {
             background-color: var(--navbar-bg-color);
             padding: 1rem;
         }
 
-        .navbar-custom .navbar-brand,
-        .navbar-custom .nav-link {
-            color: var(--navbar-text-color);
+        .navbar-custom .nav-link,
+        .navbar-brand {
+            color: var(--navbar-text-color) !important; /* Forçar a cor do texto da navbar */
             font-weight: bold;
             font-size: 1.1rem;
             text-transform: uppercase;
@@ -33,10 +28,9 @@
 
         .navbar-custom .nav-link:hover,
         .navbar-custom .nav-link.active {
-            color: white;
+            color: rgb(255, 255, 255);
         }
 
-        /* Botão de destaque */
         .btn-custom {
             background-color: var(--button-color);
             color: var(--button-text-color);
@@ -46,33 +40,44 @@
         }
 
         .btn-custom:hover {
-            background-color: white;
+            background-color: rgb(255, 255, 255);
             color: var(--button-color);
         }
 
-        /* Estilo da seção "Quem Somos" */
         body {
-            background-color: var(--background-color);
+            background-color: #000;
+            color: #ffc72c; /* Cor padrão do texto no corpo */
         }
 
-        .who-we-are-section {
-            background-color: var(--section-bg-color);
-            padding: 2rem 0;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        /* Estilo dos cartões */
         .card {
-            background-color: var(--card-bg-color);
-            border: 1px solid var(--card-border-color);
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #000000; /* Fundo preto para os cards */
+            color: #ffc72c; /* Cor do texto dos cards */
+            border: none; /* Remove borda padrão */
         }
 
-        .card img {
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+        .card-body {
+            color: #ffc72c; /* Define a cor do texto no corpo do card */
+        }
+
+        .breadcrumb {
+            background-color: transparent; /* Para deixar o fundo transparente, se necessário */
+            color: #ffc72c; /* Cor do texto da breadcrumb */
+        }
+
+        .breadcrumb .breadcrumb-item a {
+            color: #ffc72c; /* Cor dos links na breadcrumb */
+        }
+
+        .breadcrumb .breadcrumb-item.active {
+            color: #ffffff; /* Cor do item ativo (Produtos) */
+        }
+
+        /* Estilo para os títulos do produto */
+        #nome-produto, 
+        #descricao-produto, 
+        #ingredientes-produto, 
+        #preco-produto {
+            color: #ffc72c; /* Cor do texto do produto (amarelo) */
         }
     </style>
 </head>
